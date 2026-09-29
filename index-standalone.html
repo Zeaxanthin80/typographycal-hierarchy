@@ -1,0 +1,627 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Typographical Hierarchy Showcase</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* ---------- Theme tokens (light) ---------- */
+      :root {
+        --page: #f1f5f9;
+        --surface: #fff;
+        --shadow: rgb(226 232 240 / 0.6);
+        --text: #0f172a;
+        --body: #475569;
+        --muted: #64748b;
+        --faint: #94a3b8;
+        --line: #f1f5f9;
+        --border: #e2e8f0;
+        --card: rgb(248 250 252 / 0.8);
+        --card-hover: #f8fafc;
+        --card-border: rgb(226 232 240 / 0.8);
+        --card-rule: rgb(226 232 240 / 0.7);
+        --row-alt: #f8fafc;
+        --row-hover: rgb(248 250 252 / 0.8);
+        --row-alt-hover: rgb(241 245 249 / 0.6);
+        --sky: #0284c7;
+        --sky-soft: #f0f9ff;
+        --indigo: #4f46e5;
+        --indigo-strong: #4338ca;
+        --teal: #0d9488;
+        --violet: #7c3aed;
+        --switch-bg: #f1f5f9;
+        --switch-border: #e2e8f0;
+        --switch-icon: #94a3b8;
+        --switch-hover: #475569;
+        --switch-on: #fff;
+        --switch-shadow: 0 1px 2px rgb(15 23 42 / 0.12);
+        --mono: "JetBrains Mono", monospace;
+        --ease: cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      /* ---------- Dark theme: CSS-only, driven by the #theme-dark radio ---------- */
+      :root:has(#theme-dark:checked) {
+        color-scheme: dark;
+        --page: #020617;
+        --surface: #0f172a;
+        --shadow: rgb(0 0 0 / 0.4);
+        --text: #f1f5f9;
+        --body: #cbd5e1;
+        --muted: #94a3b8;
+        --faint: #94a3b8;
+        --line: #1e293b;
+        --border: #1e293b;
+        --card: rgb(30 41 59 / 0.5);
+        --card-hover: rgb(30 41 59 / 0.8);
+        --card-border: rgb(51 65 85 / 0.8);
+        --card-rule: rgb(51 65 85 / 0.7);
+        --row-alt: rgb(30 41 59 / 0.5);
+        --row-hover: rgb(30 41 59 / 0.7);
+        --row-alt-hover: rgb(51 65 85 / 0.5);
+        --sky: #38bdf8;
+        --sky-soft: rgb(12 74 110 / 0.4);
+        --indigo: #818cf8;
+        --indigo-strong: #a5b4fc;
+        --teal: #2dd4bf;
+        --violet: #a78bfa;
+        --switch-bg: #1e293b;
+        --switch-border: #334155;
+        --switch-icon: #64748b;
+        --switch-hover: #cbd5e1;
+        --switch-on: #334155;
+        --switch-shadow: none;
+      }
+
+      /* ---------- Base ---------- */
+      *,
+      ::before,
+      ::after {
+        box-sizing: border-box;
+      }
+      html {
+        height: 100%;
+        line-height: 1.5;
+        -webkit-text-size-adjust: 100%;
+        -webkit-tap-highlight-color: transparent;
+      }
+      body {
+        min-height: 100%;
+        margin: 0;
+        padding: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: "Inter", sans-serif;
+        background: var(--page);
+        color: var(--text);
+      }
+      h1,
+      h2,
+      h3,
+      p {
+        margin: 0;
+      }
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+      }
+
+      /* Accent color per block */
+      .sky {
+        --accent: var(--sky);
+      }
+      .indigo {
+        --accent: var(--indigo);
+      }
+      .teal {
+        --accent: var(--teal);
+      }
+      .violet {
+        --accent: var(--violet);
+      }
+
+      /* ---------- Layout ---------- */
+      main {
+        width: 100%;
+        max-width: 48rem;
+        padding: 1.5rem;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 1rem;
+        box-shadow:
+          0 20px 25px -5px var(--shadow),
+          0 8px 10px -6px var(--shadow);
+        transition: all 300ms var(--ease);
+      }
+      header {
+        margin-bottom: 2rem;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid var(--line);
+      }
+      .header-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+      }
+      h1 {
+        margin-top: 0.5rem;
+        font-size: 1.5rem;
+        line-height: 2rem;
+        font-weight: 700;
+        letter-spacing: -0.025em;
+      }
+      header p,
+      .intro p {
+        font-size: 0.875rem;
+        line-height: 1.25rem;
+        color: var(--muted);
+      }
+      header p {
+        margin-top: 0.25rem;
+      }
+      .stack > * + * {
+        margin-top: 2rem;
+      }
+      .group > * + * {
+        margin-top: 1.5rem;
+      }
+      footer {
+        margin-top: 2rem;
+        text-align: center;
+        font-size: 0.75rem;
+        line-height: 1rem;
+        color: var(--faint);
+      }
+
+      /* ---------- Labels & block intros ---------- */
+      .badge,
+      .eyebrow {
+        font-size: 0.75rem;
+        line-height: 1rem;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+      }
+      .badge {
+        padding: 0.25rem 0.75rem;
+        border-radius: 9999px;
+        font-weight: 600;
+        color: var(--sky);
+        background: var(--sky-soft);
+      }
+      .eyebrow {
+        font-weight: 700;
+        color: var(--accent);
+      }
+      .intro h2 {
+        margin-top: 0.25rem;
+        font-size: 1.125rem;
+        line-height: 1.75rem;
+        font-weight: 700;
+        letter-spacing: -0.025em;
+      }
+      .divided {
+        padding-top: 1.5rem;
+        border-top: 1px solid var(--line);
+      }
+
+      /* ---------- Table ---------- */
+      .table-wrap {
+        overflow: hidden;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 0.5rem;
+      }
+      .audit {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      .audit tr {
+        background: var(--surface);
+        transition: background-color 150ms var(--ease);
+      }
+      .audit tr:hover {
+        background: var(--row-hover);
+      }
+      .audit tr:nth-child(even) {
+        background: var(--row-alt);
+      }
+      .audit tr:nth-child(even):hover {
+        background: var(--row-alt-hover);
+      }
+      .audit th,
+      .audit td {
+        padding: 0.75rem 1rem;
+        font-size: 0.875rem;
+        line-height: 1.25rem;
+      }
+      .audit th {
+        width: 33.333333%;
+        text-align: right;
+        font-family: var(--mono);
+        font-weight: 500;
+        color: var(--indigo-strong);
+      }
+      .audit td {
+        width: 66.666667%;
+        text-align: left;
+        color: var(--body);
+      }
+      .audit tr:not(:last-child) > * {
+        border-bottom: 1px solid var(--line);
+      }
+
+      /* ---------- Cards ---------- */
+      .card {
+        position: relative;
+        padding: 1.5rem;
+        background: var(--card);
+        border: 1px solid var(--card-border);
+        border-radius: 0.75rem;
+        transition: all 200ms var(--ease);
+      }
+      .card:hover {
+        background: var(--card-hover);
+      }
+      .card-head {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        padding-bottom: 0.75rem;
+        border-bottom: 1px solid var(--card-rule);
+        color: var(--accent);
+      }
+      .card-head h2 {
+        font-family: var(--mono);
+        font-size: 1.125rem;
+        line-height: 1.75rem;
+        font-weight: 700;
+        letter-spacing: -0.025em;
+      }
+      .card-head span {
+        font-size: 0.875rem;
+        line-height: 1.25rem;
+        font-weight: 600;
+        letter-spacing: 0.025em;
+        text-transform: uppercase;
+      }
+      .card h3 {
+        margin-top: 1rem;
+        font-size: 1rem;
+        line-height: 1.5rem;
+        font-weight: 600;
+        letter-spacing: -0.025em;
+      }
+      .card p {
+        margin-top: 0.5rem;
+        font-size: 0.875rem;
+        line-height: 1.625;
+        color: var(--faint);
+      }
+
+      @media (min-width: 640px) {
+        body {
+          padding: 2rem;
+        }
+        main {
+          padding: 2.5rem;
+        }
+        h1 {
+          font-size: 1.875rem;
+          line-height: 2.25rem;
+        }
+        .card-head {
+          flex-direction: row;
+          align-items: center;
+          justify-content: space-between;
+        }
+        .card-head h2 {
+          font-size: 1.25rem;
+        }
+        .card-head span {
+          font-size: 1rem;
+          line-height: 1.5rem;
+          text-align: right;
+        }
+        .card h3 {
+          font-size: 1.125rem;
+          line-height: 1.75rem;
+        }
+        .card p {
+          font-size: 1rem;
+          line-height: 1.5rem;
+        }
+      }
+
+      /* ---------- Theme selector ---------- */
+      .theme-switch {
+        display: inline-flex;
+        flex-shrink: 0;
+        gap: 2px;
+        margin: 0;
+        padding: 3px;
+        background: var(--switch-bg);
+        border: 1px solid var(--switch-border);
+        border-radius: 9999px;
+      }
+      .theme-switch label {
+        display: grid;
+        place-items: center;
+        width: 28px;
+        height: 28px;
+        border-radius: 9999px;
+        color: var(--switch-icon);
+        cursor: pointer;
+        transition:
+          background-color 150ms,
+          color 150ms,
+          box-shadow 150ms;
+      }
+      .theme-switch label:hover {
+        color: var(--switch-hover);
+      }
+      .theme-switch svg {
+        width: 16px;
+        height: 16px;
+        fill: none;
+        stroke: currentColor;
+        stroke-width: 2;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+      .theme-switch input:checked + label {
+        background: var(--switch-on);
+        color: var(--sky);
+        box-shadow: var(--switch-shadow);
+      }
+      .theme-switch input:focus-visible + label {
+        outline: 2px solid #0ea5e9;
+        outline-offset: 2px;
+      }
+
+      /* ---------- Laser border: 10 laps around the box, fading out as it goes ---------- */
+      @property --laser-angle {
+        syntax: "<angle>";
+        initial-value: 0deg;
+        inherits: false;
+      }
+      :root {
+        --laser-lap: 2.5s;
+        --laser-laps: 10;
+        --laser-width: 2px;
+        --laser-color: 139, 92, 246;
+      }
+
+      /* Overlay that carries the glow; its filter runs after the ring's mask, so the glow isn't clipped */
+      .laser-border {
+        position: absolute;
+        inset: -1px;
+        border-radius: inherit;
+        pointer-events: none;
+        filter: drop-shadow(0 0 3px rgba(var(--laser-color), 0.9))
+          drop-shadow(0 0 8px rgba(var(--laser-color), 0.6));
+        animation: laser-fade calc(var(--laser-lap) * var(--laser-laps)) ease-in
+          forwards;
+      }
+      /* The laser: a rotating conic gradient masked to a thin ring, bright head leading a fading trail */
+      .laser-border::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        padding: var(--laser-width);
+        border-radius: inherit;
+        background: conic-gradient(
+          from var(--laser-angle),
+          transparent 0deg,
+          transparent 180deg,
+          rgba(var(--laser-color), 0.1) 240deg,
+          rgba(var(--laser-color), 0.6) 320deg,
+          rgba(var(--laser-color), 1) 350deg,
+          #f5f3ff 358deg,
+          transparent 360deg
+        );
+        -webkit-mask:
+          linear-gradient(#000 0 0) content-box,
+          linear-gradient(#000 0 0);
+        -webkit-mask-composite: xor;
+        mask:
+          linear-gradient(#000 0 0) content-box exclude,
+          linear-gradient(#000 0 0);
+        animation: laser-spin var(--laser-lap) linear var(--laser-laps) forwards;
+      }
+      @keyframes laser-spin {
+        to {
+          --laser-angle: 360deg;
+        }
+      }
+      @keyframes laser-fade {
+        from {
+          opacity: 1;
+        }
+        to {
+          opacity: 0;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .laser-border {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <header>
+        <div class="header-row">
+          <span class="badge">Layout &amp; Typography Showcase</span>
+
+          <!-- Theme selector (CSS only) -->
+          <fieldset class="theme-switch">
+            <legend class="sr-only">Color theme</legend>
+            <input
+              type="radio"
+              name="theme"
+              id="theme-light"
+              class="sr-only"
+              checked
+            />
+            <label for="theme-light" title="Light theme">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="12" cy="12" r="4" />
+                <path
+                  d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"
+                />
+              </svg>
+              <span class="sr-only">Light</span>
+            </label>
+            <input type="radio" name="theme" id="theme-dark" class="sr-only" />
+            <label for="theme-dark" title="Dark theme">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+              </svg>
+              <span class="sr-only">Dark</span>
+            </label>
+          </fieldset>
+        </div>
+        <h1>Structured Showcase Interface</h1>
+        <p>
+          Light and dark themes featuring a standalone table showcase and
+          semantic HTML5 typographic sections.
+        </p>
+      </header>
+
+      <div class="stack">
+        <!-- Block 1: Table Showcase -->
+        <div class="intro indigo">
+          <span class="eyebrow">Table Showcase</span>
+          <h2>Audit Summary</h2>
+          <p>
+            Alternating row colors, two columns, headerless, first column
+            right-aligned.
+          </p>
+        </div>
+
+        <div class="table-wrap">
+          <table class="audit">
+            <tbody>
+              <tr>
+                <th scope="row">AUDIT SCORE</th>
+                <td>99</td>
+              </tr>
+              <tr>
+                <th scope="row">CALL DATE</th>
+                <td>09/01</td>
+              </tr>
+              <tr>
+                <th scope="row">AUDIT DATE</th>
+                <td>09/04</td>
+              </tr>
+              <tr>
+                <th scope="row">SERVICE ADVOCATE</th>
+                <td>John Doe</td>
+              </tr>
+              <tr>
+                <th scope="row">AUDITOR</th>
+                <td>Jane Smith</td>
+              </tr>
+              <tr>
+                <th scope="row">SERVICE ADVOCATE SUP</th>
+                <td>Michael Johnson</td>
+              </tr>
+              <tr>
+                <th scope="row">MEMBER ID</th>
+                <td>101100100100</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Block 2: Reason for Call -->
+        <div class="group">
+          <div class="intro divided violet">
+            <span class="eyebrow">Call Context</span>
+            <h2>Reason for Call</h2>
+            <p>Why the member contacted us, as captured during the audit.</p>
+          </div>
+
+          <section class="card violet">
+            <span class="laser-border" aria-hidden="true"></span>
+            <div class="card-head">
+              <h2>RFC</h2>
+              <span>Dental Coverage</span>
+            </div>
+            <h3>Bridge Procedure Benefit</h3>
+            <p>
+              Member requested information regarding dental coverage and wanted
+              to understand her benefit for a possible bridge procedure.
+            </p>
+          </section>
+        </div>
+
+        <!-- Block 3: Scoring Metrics -->
+        <div class="group">
+          <div class="intro divided sky">
+            <span class="eyebrow">Typographic Showcase</span>
+            <h2>Scoring Metrics</h2>
+            <p>
+              Semantic HTML5 Sections - Featuring dual-part h2 headers (code
+              left, meaning right), h3 sub-headings, and paragraph text.
+            </p>
+          </div>
+
+          <section class="card sky">
+            <div class="card-head">
+              <h2>H3</h2>
+              <span>Dead Air</span>
+            </div>
+            <h3>COACHING</h3>
+            <p>
+              Dead Air Opportunity - There was a brief period of silence while
+              Jose researched coverage details.
+            </p>
+            <p>
+              Coaching Opportunity: Provide updates during research such as: -
+              "I'm reviewing the comprehensive dental benefit for you now."
+            </p>
+          </section>
+
+          <section class="card teal">
+            <div class="card-head">
+              <h2>E1</h2>
+              <span>Acknowledge Emotion</span>
+            </div>
+            <h3>ONE POINT</h3>
+            <p>
+              Acknowledged Emotion / Events Opportunity - The member did not
+              express strong frustration or emotion; however, Jose could have
+              personalized the interaction by acknowledging the upcoming dental
+              work.
+            </p>
+            <p>
+              Example: "I understand you're planning for a bridge and want to
+              know what your costs may be."
+            </p>
+          </section>
+        </div>
+      </div>
+
+      <footer>
+        Crafted with semantic HTML5 sections, plain CSS, and a CSS-only theme
+        toggle.
+      </footer>
+    </main>
+  </body>
+</html>
