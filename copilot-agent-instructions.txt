@@ -48,25 +48,25 @@ CONTENT RULES
 - Ignore chatter that is not audit data (greetings, "HAPPY FRIDAY", "audit yesterday").
 - Remove emoji and warning symbols (e.g. "⚠️") from the output.
 - Escape &, <, and > in text (e.g. "Layout &amp; Typography").
-- Write names exactly as they appear in the notes, including capitalization (e.g. "BALLENTINE" stays "BALLENTINE"). Write member pronouns as they appear in the notes.
+- Write names exactly as they appear in the notes, including capitalization. Write member pronouns as they appear in the notes.
 
 EXAMPLE
 Notes:
-99 – 9/16 – 9/23 – Jose Marquez – BALLENTINE / BALLENTINE - Employee: Jose Marquez - Member: Adila Moore - Member ID: 101618062900
+99 – 9/16 – 9/23 – John Doe – Jane Smith / Michael Johnson - Employee: John Doe - Member: Richard Stone - Member ID: 101100100100
 -- COACHING - Reason for Call: Member requested information regarding dental coverage and wanted to understand her benefit for a possible bridge procedure.
--- H 5 – Dead Air – COACHING - H5: Dead Air ⚠️ Opportunity - There was a brief period of silence while Jose researched coverage details. - Coaching Opportunity: Provide updates during research such as: - "I'm reviewing the comprehensive dental benefit for you now."
--- E 1 – Ack Emotion – ONE POINT - E1: Acknowledged Emotion / Events ⚠️Opportunity - The member did not express strong frustration or emotion; however, Jose could have personalized the interaction by acknowledging the upcoming dental work. - Example: - "I understand you're planning for a bridge and want to know what your costs may be."
+-- H 5 – Dead Air – COACHING - H5: Dead Air ⚠️ Opportunity - There was a brief period of silence while John researched coverage details. - Coaching Opportunity: Provide updates during research such as: - "I'm reviewing the comprehensive dental benefit for you now."
+-- E 1 – Ack Emotion – ONE POINT - E1: Acknowledged Emotion / Events ⚠️Opportunity - The member did not express strong frustration or emotion; however, John could have personalized the interaction by acknowledging the upcoming dental work. - Example: - "I understand you're planning for a bridge and want to know what your costs may be."
 
-How to read the first line: score – call date – audit date – service advocate – auditor / supervisor - employee - member - member ID. When the notes repeat a name (e.g. "BALLENTINE / BALLENTINE"), the first is the auditor and the second the supervisor. Ask the user if a line does not fit this pattern.
+How to read the first line: score – call date – audit date – service advocate – auditor / supervisor - employee - member - member ID. Ask the user if a line does not fit this pattern.
 
 Resulting rows:
 <tr><th scope="row">AUDIT SCORE</th><td>99</td></tr>
 <tr><th scope="row">CALL DATE</th><td>09/16</td></tr>
 <tr><th scope="row">AUDIT DATE</th><td>09/23</td></tr>
-<tr><th scope="row">SERVICE ADVOCATE</th><td>Jose Marquez</td></tr>
-<tr><th scope="row">AUDITOR</th><td>BALLENTINE</td></tr>
-<tr><th scope="row">SERVICE ADVOCATE SUP</th><td>BALLENTINE</td></tr>
-<tr><th scope="row">MEMBER ID</th><td>101618062900</td></tr>
+<tr><th scope="row">SERVICE ADVOCATE</th><td>John Doe</td></tr>
+<tr><th scope="row">AUDITOR</th><td>Jane Smith</td></tr>
+<tr><th scope="row">SERVICE ADVOCATE SUP</th><td>Michael Johnson</td></tr>
+<tr><th scope="row">MEMBER ID</th><td>101100100100</td></tr>
 
 Resulting cards:
 <section class="card violet">
@@ -79,13 +79,13 @@ Resulting cards:
 <section class="card sky">
   <div class="card-head"><h2>H5</h2><span>Dead Air</span></div>
   <h3>COACHING</h3>
-  <p>Dead Air Opportunity - There was a brief period of silence while Jose researched coverage details.</p>
+  <p>Dead Air Opportunity - There was a brief period of silence while John researched coverage details.</p>
   <p>Coaching Opportunity: Provide updates during research such as: "I'm reviewing the comprehensive dental benefit for you now."</p>
 </section>
 
 <section class="card teal">
   <div class="card-head"><h2>E1</h2><span>Acknowledge Emotion</span></div>
   <h3>ONE POINT</h3>
-  <p>Acknowledged Emotion / Events Opportunity - The member did not express strong frustration or emotion; however, Jose could have personalized the interaction by acknowledging the upcoming dental work.</p>
+  <p>Acknowledged Emotion / Events Opportunity - The member did not express strong frustration or emotion; however, John could have personalized the interaction by acknowledging the upcoming dental work.</p>
   <p>Example: "I understand you're planning for a bridge and want to know what your costs may be."</p>
 </section>
