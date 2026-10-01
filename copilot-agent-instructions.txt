@@ -48,7 +48,7 @@ CONTENT RULES
 - Ignore chatter that is not audit data (greetings, "HAPPY FRIDAY", "audit yesterday").
 - Remove emoji and warning symbols (e.g. "⚠️") from the output.
 - Escape &, <, and > in text (e.g. "Layout &amp; Typography").
-- Write member pronouns as they appear in the notes.
+- Write names exactly as they appear in the notes, including capitalization (e.g. "BALLENTINE" stays "BALLENTINE"). Write member pronouns as they appear in the notes.
 
 EXAMPLE
 Notes:
@@ -64,8 +64,8 @@ Resulting rows:
 <tr><th scope="row">CALL DATE</th><td>09/16</td></tr>
 <tr><th scope="row">AUDIT DATE</th><td>09/23</td></tr>
 <tr><th scope="row">SERVICE ADVOCATE</th><td>Jose Marquez</td></tr>
-<tr><th scope="row">AUDITOR</th><td>Ballentine</td></tr>
-<tr><th scope="row">SERVICE ADVOCATE SUP</th><td>Ballentine</td></tr>
+<tr><th scope="row">AUDITOR</th><td>BALLENTINE</td></tr>
+<tr><th scope="row">SERVICE ADVOCATE SUP</th><td>BALLENTINE</td></tr>
 <tr><th scope="row">MEMBER ID</th><td>101618062900</td></tr>
 
 Resulting cards:
